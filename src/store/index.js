@@ -63,7 +63,6 @@ export default new Vuex.Store({
       }
     },
     async createPost({ state }, post) {
-      console.log(post);
       try {
         let response = await axios.post(`${state.apiUrl}/posts`, {
           body: JSON.stringify(post),
@@ -71,7 +70,6 @@ export default new Vuex.Store({
             "Content-type": "application/json; charset=UTF-8",
           },
         });
-        console.log(response);
         if (response.status === 201) {
           router.push("/");
         }
